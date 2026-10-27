@@ -1,0 +1,64 @@
+services:
+  mysql:
+    image: mysql/mysql-server:latest
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: bab_pass
+      MYSQL_DATABASE: NYT
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - babdat:/var/lib/mysql
+      - ./Database/mysql-init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    networks:
+      - springboot-mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: bab_pass
+    ports:
+      - "80:80"
+    networks:
+      - springboot-mysql
+
+  backend:
+    build: ./backend
+    restart: always
+    container_name: springboot
+    environment:
+      SPRING_PROFILES_ACTIVE: docker 
+    ports:
+    - 8080:8080
+    depends_on:
+      - phpmyadmin
+    networks:
+      - springboot-mysql
+      - frontend_backend
+
+  frontend:
+    build: ./frontend
+    restart: always
+    container_name: react
+    ports:
+    - 5000:5000
+    depends_on:
+      - backend
+    networks:
+      - frontend_backend
+
+volumes:
+  babdat:
+
+networks:
+  springboot-mysql:
+    driver: bridge
+  frontend_backend:
+    driver: bridge

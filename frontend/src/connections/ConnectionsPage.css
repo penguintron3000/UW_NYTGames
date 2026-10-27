@@ -1,0 +1,219 @@
+#ConnectionsPage {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-width:650px;
+    height: 100vh;
+    min-height: 1000px;
+    max-height: 1500px;
+    width: 100vw;
+  }
+
+#header{
+    font-size: 60px;
+    display:flex;
+    width:100vw;
+    min-width: 450px;
+    margin: auto;
+    padding-top: 70px;
+}
+
+#ConnectionsBoard {
+    flex: 100%;
+    height: 550px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+}
+
+.phrase {
+    flex: 100%;
+    height: 100px;
+    width: 100%;
+    border: 1px solid black;
+    border-style: solid;
+    display: grid;
+    place-items: center;
+    font-weight: bolder;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #7a7a7a;
+    user-select: none;
+    margin: 5px;
+}
+
+.lowerText{
+    position:relative;
+    top: 20px;
+    margin: 10px;
+}
+
+#attempts{
+    display: flex;
+    align-items: center;
+    width: 800px;
+}
+
+#attemptsText{
+    text-align: left;
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.vAttempt{
+    background-color: #7a7a7a;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin: 5px;
+    border-style: solid;
+    border: 5px solid black;
+    border-radius: 100px;
+}
+
+.invAttempt{
+    width: 30px;
+    height: 20px;
+    display: flex;
+    margin: 5px;
+}
+
+.clicked{
+    background-color:aqua;
+}
+
+.level1{
+    background-color:red;
+    margin: 0px;
+    border: none;
+}
+
+.level2{
+    background-color: purple;
+    margin: 0px;
+    border: none;
+}
+
+.level3{
+    background-color:blue;
+    margin: 0px;
+    border: none;
+}
+
+.level4{
+    background-color:green;
+    margin: 0px;
+    border: none;
+}
+
+.rowConnections {
+    flex: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: -25px;
+}
+
+#submitBody{
+    width: 800px;
+}
+
+#submitButton{
+    font-size: 25px;
+    width: 100px;
+    margin-left: auto;
+    user-select:none;
+    border-style: solid;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-color: black;
+    cursor: pointer;
+}
+
+#connectionsComponents{
+    width: 800px;
+    margin: auto;
+    position:relative;
+    z-index: 0;
+}
+
+#modalConnections{
+    width: 300px;
+    height: 200px;
+    margin:auto;
+    text-align: center;
+    align-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.topics{
+    z-index: 1;
+    position: relative;
+    top: 15px;
+    font-size: 32px;
+    user-select: none;
+    pointer-events: none;
+    font-weight: bold;
+    color: white;
+}
+
+.filler{
+    position: relative;
+    top: 20px;
+    height: 35px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.smaller{
+    animation:smaller .5s forwards;
+    animation-play-state: running;
+}
+
+.bigger{
+    animation:bigger .5s;
+    animation-play-state: running;
+}
+
+@keyframes smaller{
+    0%{
+        transform:scale(1)
+    }
+    20%{
+        transform:scale(.8)
+    }
+    40%{
+        transform:scale(.6)
+    }
+    60%{
+        transform:scale(.4)
+    }
+    80%{
+        transform:scale(.2)
+    }
+    100%{
+        transform:scale(0)
+    }
+}
+
+@keyframes bigger {
+    0%{
+        transform:scale(0)
+    }
+    20%{
+        transform:scale(.2)
+    }
+    40%{
+      transform:scale(.4)
+    }
+    60%{
+      transform:scale(.6)
+    }
+    80%{
+      transform:scale(.8)
+    }
+    100%{
+      transform:scale(1)
+    }
+}

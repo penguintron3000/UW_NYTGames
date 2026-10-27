@@ -1,0 +1,94 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .nav {
+    position: relative;
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+  
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+  
+  .menu-icon .navicon {
+    background: var(--header-text-color);
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+  }
+  
+  .menu-icon .navicon:before,
+  .menu-icon .navicon:after {
+    background: var(--header-text-color);
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+  }
+  
+  .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  .menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    margin: 0;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: var(--header-text-color);
+    padding: 10px 20px;
+    display: block;
+  }
+  
+  .menu-toggle:checked + .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .menu-toggle:checked + .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .menu-toggle:checked + .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .menu-toggle:checked ~ .menu {
+    display: block;
+  }
+  
+  .dark-mode-toggle {
+    background: none;
+    border: none;
+    color: var(--header-text-color);
+    cursor: pointer;
+    font-size: 16px;
+  }
